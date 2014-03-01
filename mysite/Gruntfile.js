@@ -2,6 +2,9 @@ module.exports = function(grunt) {
 
   // config
   grunt.initConfig({
+
+      pkg: grunt.file.readJSON('package.json'),
+
       less: {
         build: {
           /*
@@ -13,9 +16,21 @@ module.exports = function(grunt) {
           }
         }
       },
+
       csslint: {
         check: {
           src: 'build/*.css'
+        }
+      },
+
+      cssmin: {
+        minimize: {
+          options: {
+            banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */'
+          },
+          files: {
+            'build/style.min.css': 'build/style.css'
+          }
         }
       }
   });
@@ -23,8 +38,9 @@ module.exports = function(grunt) {
   // plugin
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-csslint');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
 
   // tasks
-  grunt.registerTask('default', ['less', 'csslint']);
+  grunt.registerTask('default', ['less', 'csslint', 'cssmin']);
 
 };
