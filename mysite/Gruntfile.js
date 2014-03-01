@@ -32,6 +32,11 @@ module.exports = function(grunt) {
             'build/style.min.css': 'build/style.css'
           }
         }
+      },
+
+      watch: {
+        files: 'src/*.less',
+        tasks: ['less', 'csslint', 'cssmin']
       }
   });
 
@@ -39,8 +44,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-csslint');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-watch');
 
   // tasks
-  grunt.registerTask('default', ['less', 'csslint', 'cssmin']);
+  grunt.registerTask('default', ['less', 'csslint', 'cssmin', 'watch']);
 
 };
