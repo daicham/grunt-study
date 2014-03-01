@@ -4,8 +4,13 @@ module.exports = function(grunt) {
   grunt.initConfig({
       less: {
         build: {
+          /*
           src: 'src/style1.less',
           dest: 'build/style1.css'
+          */
+          files: {
+            'build/style.css': 'src/**/*.less'
+          }
         }
       }
   });
