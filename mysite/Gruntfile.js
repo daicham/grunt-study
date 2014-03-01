@@ -3,6 +3,9 @@ module.exports = function(grunt) {
   // config
   grunt.initConfig({
       less: {
+        options: {
+          compress: true
+        },
         build: {
           /*
           src: 'src/style1.less',
