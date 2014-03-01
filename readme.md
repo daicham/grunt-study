@@ -11,3 +11,7 @@
 ### Install LESS
 
 `> npm install -g less`
+
+### Install grunt-cli
+
+`> npm install -g grunt-cli`
