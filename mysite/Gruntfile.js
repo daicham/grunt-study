@@ -15,13 +15,19 @@ module.exports = function(grunt) {
             'build/style.css': 'src/**/*.less'
           }
         }
+      },
+      csslint: {
+        check: {
+          src: 'build/*.css'
+        }
       }
   });
 
   // plugin
   grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-contrib-csslint');
 
   // tasks
-  grunt.registerTask('default', 'less');
+  grunt.registerTask('default', ['less', 'csslint']);
 
 };
